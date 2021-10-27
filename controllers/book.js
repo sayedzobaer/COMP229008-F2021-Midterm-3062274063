@@ -42,8 +42,7 @@ module.exports.details = (req, res, next) => {
 }
 
 // Renders the Add form using the add_edit.ejs template
-module.exports.displayAddPage = (req, res, next) => {
-    
+module.exports.displayAddPage = (req, res, next) => {   
     res.render('book/add_edit', {title: "Add Page", book: {
         _id: "", Title: "", Price: "", Description: "", Author: "", Genre: ""
     }})       
@@ -52,10 +51,12 @@ module.exports.displayAddPage = (req, res, next) => {
 
 // Processes the data submitted from the Add form to create a new book
 module.exports.processAddPage = (req, res, next) => {
-
-    
-    // ADD YOUR CODE HERE
-
+    let { id, ...body } = req.body
+    let book = new Book(body)
+    book.save((err, data) => {
+        if(err) res.send("error occured")
+        res.redirect('/book/list')
+    })
 }
 
 // Gets a book by id and renders the Edit form using the add_edit.ejs template

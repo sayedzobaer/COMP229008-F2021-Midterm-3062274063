@@ -46,7 +46,6 @@ module.exports.displayAddPage = (req, res, next) => {
     res.render('book/add_edit', {title: "Add Page", book: {
         _id: "", Title: "", Price: "", Description: "", Author: "", Genre: ""
     }})       
-
 }
 
 // Processes the data submitted from the Add form to create a new book
@@ -61,7 +60,9 @@ module.exports.processAddPage = (req, res, next) => {
 
 // Gets a book by id and renders the Edit form using the add_edit.ejs template
 module.exports.displayEditPage = (req, res, next) => {
-    
+    res.render('book/add_edit', {title: "Add Page", book: {
+        _id: "", Title: "", Price: "", Description: "", Author: "", Genre: ""
+    }})
     // ADD YOUR CODE HERE
 
 }

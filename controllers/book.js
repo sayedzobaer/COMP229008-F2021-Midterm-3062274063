@@ -84,5 +84,9 @@ module.exports.processEditPage = (req, res, next) => {
 
 // Deletes a book based on its id.
 module.exports.performDelete = (req, res, next) => {
-  // ADD YOUR CODE HERE
+  let id = req.params.id;
+  Book.findByIdAndRemove(id, (err, data) => {
+      if(err) res.send("error occured");
+      else res.redirect("/book/list");
+  })
 };

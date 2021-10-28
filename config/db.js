@@ -1,3 +1,3 @@
 module.exports = {
-    "AtlasDB": "mongodb://localhost:27017/myapp"
+    "AtlasDB": "mongodb+srv://sayedzobaer:Waqar12younus@cluster0.saa67.mongodb.net/test"
 }
